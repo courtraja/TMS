@@ -8,5 +8,6 @@
   <modules>
     <module>ticket-core</module>
     <module>ticket-web</module>
+    <module>ticketweb</module>
   </modules>
 </project>
