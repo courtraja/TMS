@@ -4,9 +4,29 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=1,initial-scale=1,user-scalable=1"/>
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <title>Insert title here</title>
 </head>
 <body>
-<p>hello world</p>
+<br>
+<br>
+<br>
+<br>
+ <form align="center">
+    <div class="form-group" align="center">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="email" placeholder="Username" style="width:100px">
+    </div>
+    <div class="form-group" align="center">
+      <label for="pwd">Password:</label>
+      <input type="password" class="form-control" id="pwd" placeholder=" password" style="width:100px">
+    </div>
+    <button type="submit" class="btn btn-default">Login</button>
+    <button type="submit" class="btn btn-default">Register</button>
+  </form>
+
 </body>
 </html>
