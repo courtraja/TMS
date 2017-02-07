@@ -90,9 +90,9 @@ JdbcTemplate jdbcTemplate = ConnectionUtil.getJdbcTemplate();
 			
 		};
 	
-	public TicketDetails findone()
+	public TicketDetails select(int userId)
 	{
-		String sql = "select select * from TicketDetails where issue_id=?";
+		String sql = "select select * from TicketDetails where user_id=?";
 		
 		return (TicketDetails) jdbcTemplate.query(sql, (rs,rowNum) -> convert(rs));
 	}
@@ -125,4 +125,5 @@ JdbcTemplate jdbcTemplate = ConnectionUtil.getJdbcTemplate();
 			return employeeDetail;
 		});
 	}
+	
 }

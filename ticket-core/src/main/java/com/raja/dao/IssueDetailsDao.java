@@ -18,23 +18,23 @@ JdbcTemplate jdbcTemplate = ConnectionUtil.getJdbcTemplate();
 
 	public void save(IssueDetails issue) {
 
-		String sql = "insert into issue_details(ticket_id,solution) values(?,?,?)";
-		Object[] params = {issue.getId(),issue.getSolution()};
+		String sql = "insert into issue_details(issue_id,ticket_id,solution) values(?,?,?)";
+		Object[] params = {issue.getIssueId(),issue.getId(),issue.getSolution()};
 		jdbcTemplate.update(sql, params);
 		
 		}
 	public void update(IssueDetails issue) {
 
-		String sql = "update IssueDetails set solution=? where ticket_id=?";
-		Object[] params = {issue.getSolution(),issue.getId()};
+		String sql = "update IssueDetails set solution=? where issue_id_id=?";
+		Object[] params = {issue.getSolution(),issue.getIssueId()};
 		jdbcTemplate.update(sql, params);
 		
 		}
 
 	public void delete(IssueDetails issue) {
 
-		String sql = "delete from issue_details where ticket_id=?";
-		Object[] params = {issue.getId()};
+		String sql = "delete from issue_details where issue_id=?";
+		Object[] params = {issue.getIssueId()};
 		jdbcTemplate.update(sql, params);
 		
 		}
@@ -49,7 +49,7 @@ JdbcTemplate jdbcTemplate = ConnectionUtil.getJdbcTemplate();
 			tick.setId(rs.getInt("ticket_id"));
 		
 			IssueDetails issue= new IssueDetails();
-			
+			issue.setIssueId(rs.getInt("issue_id"));
 			issue.setId(tick);
 			issue.setSolution(rs.getString("department_active"));
 			
@@ -59,7 +59,7 @@ JdbcTemplate jdbcTemplate = ConnectionUtil.getJdbcTemplate();
 	
 	public IssueDetails findone()
 	{
-		String sql = "select * from issue_details where user_id=?";
+		String sql = "select * from issue_details where issue_id=?";
 		
 		return (IssueDetails) jdbcTemplate.query(sql, (rs,rowNum) -> convert(rs));
 	}

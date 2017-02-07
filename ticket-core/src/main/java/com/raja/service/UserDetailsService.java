@@ -11,6 +11,15 @@ public class UserDetailsService {
 	final Logger logger = Logger.getLogger(DepartmentDetails.class.getName());
 	UserDetailsValidation userDetailValidator=new UserDetailsValidation();
 
+	public void registration(UserDetails userDetail){
+		try{
+			userDetailValidator.saveValidation(userDetail);
+			UserDetailsDao userDetailDao=new UserDetailsDao();
+			userDetailDao.save(userDetail);
+		}catch (ValidationException e){
+			logger.log(Level.SEVERE, "exception occur %s",e);
+		}
+	}
 public void save(UserDetails userDetail){
 	try{
 		userDetailValidator.saveValidation(userDetail);
