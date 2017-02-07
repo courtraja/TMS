@@ -10,23 +10,19 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <title>Insert title here</title>
 </head>
-<body>
+<body align="center">
 <br>
 <br>
 <br>
 <br>
- <form align="center">
-    <div class="form-group" align="center">
-      <label for="email">Email:</label>
-      <input type="email" class="form-control" id="email" placeholder="Username" style="width:300px">
-    </div>
-    <div class="form-group" align="center">
-      <label for="pwd">Password:</label>
-      <input type="password" class="form-control" id="pwd" placeholder=" password" style="width:300px">
-    </div>
-    <button type="submit" class="btn btn-default">Login</button>
-    <button type="submit" class="btn btn-default">Register</button>
-  </form>
-
+ <a href="UserLogin.jsp">UserLogin</a>
+ <br>
+ <br>
+ <br>
+<a href="employeeLogin.jsp">EmployeeLogin</a>
+<br>
+<br>
+<br>
+<a href="userregistration.jsp">UserRegistration</a>
 </body>
 </html>

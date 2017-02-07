@@ -45,9 +45,13 @@ public class UserDetailsValidation {
 		 String str1=Temail;
 		 String str2=Tpassword;
 		 if( str1.equals(email) && str2.equals(password)){
-			 return "successfull";
+			 return "successful";
 			 
-		 }else 
+		 }
+		 else if(str1.equals(email) || str2.equals(password)){
+			 throw new ValidationException("login fail");
+		 }
+		 else 
 		 {
 			 throw new ValidationException("login fail");
 		 }

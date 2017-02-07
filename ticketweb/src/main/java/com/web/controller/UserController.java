@@ -33,9 +33,9 @@ public class UserController {
 		} catch (ValidationException e) {
 			
 			modelMap.addAttribute("ERROR_MESSAGE", e.getMessage());
-			return "../userlogin.jsp";
+			return "../UserLogin.jsp";
 		}
-		return "../successful.jsp";
+		return "../SuccessfulUserLogin.jsp";
 
 	}
 
@@ -53,9 +53,9 @@ public class UserController {
 	  }catch(ValidationException e){
 		  e.printStackTrace();
 		  modelMap.addAttribute("ERROR_MESSAGE",e.getMessage());
-		  return"../userlogin.jsp";
+		  return"../employeeLogin.jsp";
 	  }
-	  return"../successful.jsp";
+	  return"../successfulemployeelogin.jsp";
 	  }
 	@GetMapping("/userregistration")
 	public String userRegistration(@RequestParam("userid") Integer userid, @RequestParam("username") String username,
@@ -72,10 +72,10 @@ public class UserController {
 		} catch (ValidationException e) {
 			e.printStackTrace();
 			modelMap.addAttribute("ERROR_MESSAGE", e.getMessage());
-			return "../error.jsp";
+			return "../.jsp";
 
 		}
-		return "../successful.jsp";
+		return "../SuccessfulUserRegistration.jsp";
 
 	}
 }
