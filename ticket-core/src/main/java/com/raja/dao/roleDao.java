@@ -49,11 +49,11 @@ JdbcTemplate jdbcTemplate = ConnectionUtil.getJdbcTemplate();
 			
 		};
 	
-	public role findone()
+	public role findone(int id)
 	{
-		String sql = "select * from user_details where user_id=?";
-		
-		return (role) jdbcTemplate.query(sql, (rs,rowNum) -> convert(rs));
+		String sql = "select * from user_details where role_id=?";
+		Object[] params={id};
+		return (role) jdbcTemplate.queryForObject(sql, (rs,rowNum) -> convert(rs));
 	}
 	public List<role> list()
 	{

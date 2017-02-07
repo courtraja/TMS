@@ -49,11 +49,11 @@ JdbcTemplate jdbcTemplate = ConnectionUtil.getJdbcTemplate();
 			return department;
 			
 		};
-	public DepartmentDetails findone()
+	public DepartmentDetails findone(int id)
 	{
 		String sql = "select * from department_details where department_id=?";
-		
-		return (DepartmentDetails) jdbcTemplate.query(sql, (rs,rowNum) -> convert(rs));
+		Object[] params={id};
+		return (DepartmentDetails) jdbcTemplate.queryForObject(sql, (rs,rowNum) -> convert(rs));
 	}
 	public List<DepartmentDetails> list()
 	{

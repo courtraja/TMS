@@ -19,7 +19,7 @@ import com.raja.service.UserDetailsService;
 @RequestMapping("/login")
 public class UserController {
 	@GetMapping("/UserLogin")
-	public String userLogin(@RequestParam("emailid") String emailid, @RequestParam("password") String password,
+	public String userLogin(@RequestParam("email") String emailid, @RequestParam("pwd") String password,
 			ModelMap modelMap) {
 		System.out.println("hi");
 		UserDetails userDetail = new UserDetails();
@@ -35,7 +35,7 @@ public class UserController {
 			modelMap.addAttribute("ERROR_MESSAGE", e.getMessage());
 			return "../userlogin.jsp";
 		}
-		return "../successfull.jsp";
+		return "../successful.jsp";
 
 	}
 
@@ -55,7 +55,7 @@ public class UserController {
 		  modelMap.addAttribute("ERROR_MESSAGE",e.getMessage());
 		  return"../userlogin.jsp";
 	  }
-	  return"../susscessfull.jsp";
+	  return"../successful.jsp";
 	  }
 	@GetMapping("/userregistration")
 	public String userRegistration(@RequestParam("userid") Integer userid, @RequestParam("username") String username,
@@ -75,7 +75,7 @@ public class UserController {
 			return "../error.jsp";
 
 		}
-		return "../successfull.jsp";
+		return "../successful.jsp";
 
 	}
 }

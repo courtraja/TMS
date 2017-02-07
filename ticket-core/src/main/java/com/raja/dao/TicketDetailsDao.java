@@ -93,8 +93,8 @@ JdbcTemplate jdbcTemplate = ConnectionUtil.getJdbcTemplate();
 	public TicketDetails select(int userId)
 	{
 		String sql = "select select * from TicketDetails where user_id=?";
-		
-		return (TicketDetails) jdbcTemplate.query(sql, (rs,rowNum) -> convert(rs));
+		Object[] params={userId};
+		return (TicketDetails) jdbcTemplate.queryForObject(sql, (rs,rowNum) -> convert(rs));
 	}
 	public List<TicketDetails> list()
 	{

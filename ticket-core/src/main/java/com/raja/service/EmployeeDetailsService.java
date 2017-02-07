@@ -38,7 +38,7 @@ public class EmployeeDetailsService {
 		try{
 			UserDetailsValidation userDetailValidator=new UserDetailsValidation();
 		 EmployeeDetailsDao employeeDetailDao=new EmployeeDetailsDao();
-		EmployeeDetails row	=employeeDetailDao.findone();
+		EmployeeDetails row	=(EmployeeDetails) employeeDetailDao.list();
 			String tname=row.getEmployeeMail();
 			String tpassword=row.getEmployeePass();
 			System.out.println(tname);

@@ -57,11 +57,11 @@ JdbcTemplate jdbcTemplate = ConnectionUtil.getJdbcTemplate();
 			
 		};
 	
-	public IssueDetails findone()
+	public IssueDetails findone(int id)
 	{
 		String sql = "select * from issue_details where issue_id=?";
-		
-		return (IssueDetails) jdbcTemplate.query(sql, (rs,rowNum) -> convert(rs));
+		Object[] params={id};
+		return (IssueDetails) jdbcTemplate.queryForObject(sql, (rs,rowNum) -> convert(rs));
 	}
 	public List<IssueDetails> list()
 	{

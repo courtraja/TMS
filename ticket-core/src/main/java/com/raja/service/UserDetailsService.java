@@ -51,13 +51,15 @@ public void update(UserDetails userDetail){
 public void login(String email,String password) throws ValidationException{
 	try{
 		UserDetailsDao userDetailDao=new UserDetailsDao();
-		UserDetails row=(userDetailDao.findone());
+		UserDetails row=(userDetailDao.findone(1));
 		String tname=row.getUserMail();
 		String tpassword=row.getPass();
 		
 		String message=(userDetailValidator.loginValidation(tname, tpassword, email, password));
 		
 		System.out.println(message);
+		
+		
 	}
 	catch(ValidationException e){
 		logger.log(Level.SEVERE, "exception occur", e);

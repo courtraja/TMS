@@ -14,14 +14,14 @@ ${ERROR_MESSAGE};
 <br>
 <br>
 <br>
-<form action="login/userLogin" method="GET">
+<form action="login/UserLogin" method="GET">
 		<div class="form-group" align="center">
       <label for="email">Email:</label>
-      <input type="email" class="form-control" id="email" placeholder="Username" style="width:300px">
+      <input type="text" class="form-control" name="email" placeholder="Username" style="width:300px">
     </div>
     <div class="form-group" align="center">
       <label for="pwd">Password:</label>
-      <input type="password" class="form-control" id="pwd" placeholder=" password" style="width:300px">
+      <input type="text" class="form-control" name="pwd" placeholder=" password" style="width:300px">
     </div>
     <button type="submit" class="btn btn-default">Login</button>
     <button type="submit" class="btn btn-default">Register</button>

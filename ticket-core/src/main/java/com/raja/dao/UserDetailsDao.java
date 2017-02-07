@@ -52,11 +52,11 @@ JdbcTemplate jdbcTemplate = ConnectionUtil.getJdbcTemplate();
 			
 		};
 	
-	public UserDetails findone()
+	public UserDetails findone(int id)
 	{
 		String sql = "select * from user_details where user_id=?";
-		
-		return (UserDetails) jdbcTemplate.query(sql, (rs,rowNum) -> convert(rs));
+		Object[] params={id};
+		return (UserDetails) jdbcTemplate.queryForObject(sql,params, (rs,rowNum) -> convert(rs));
 	}
 	public List<UserDetails> list()
 	{
