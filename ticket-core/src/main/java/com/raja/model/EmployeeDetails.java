@@ -1,7 +1,5 @@
 package com.raja.model;
 
-import com.raja.model.role;
-
 import lombok.Data;
 
 @Data

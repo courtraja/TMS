@@ -15,6 +15,7 @@ com\raja\service\TicketDetailsService.class
 org\ticket\core\App.class
 com\raja\validation\UserDetailsValidation.class
 com\raja\model\DepartmentDetails.class
+test\TestService.class
 com\raja\service\DepartmentDetailsService$DepartmentService.class
 com\raja\dao\DepartmentDetailsDao.class
 com\raja\util\ConnectionUtil.class

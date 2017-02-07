@@ -8,6 +8,7 @@ import com.raja.exception.ValidationException;
 import com.raja.model.DepartmentDetails;
 import com.raja.model.EmployeeDetails;
 import com.raja.validation.EmployeeValidation;
+import com.raja.validation.UserDetailsValidation;
 
 
 public class EmployeeDetailsService {
@@ -32,5 +33,27 @@ public class EmployeeDetailsService {
 		 logger.log(Level.CONFIG,"exception occur",e);
 	 }
  }
+ public void  login(String email,String password) throws ValidationException{
+		
+		try{
+			UserDetailsValidation userDetailValidator=new UserDetailsValidation();
+		 EmployeeDetailsDao employeeDetailDao=new EmployeeDetailsDao();
+		EmployeeDetails row	=employeeDetailDao.findone();
+			String tname=row.getEmployeeMail();
+			String tpassword=row.getEmployeePass();
+			System.out.println(tname);
+			userDetailValidator.loginValidation(tname, tpassword, email, password);
+			
+			
+		}
+		catch(ValidationException e){
+			logger.log(Level.SEVERE, "exception occur", e);
+		     throw e;
+		
+		}
+		
+	    
+	    
+	}
 }
 
