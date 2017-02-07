@@ -3,6 +3,7 @@ package test;
 import java.time.LocalDateTime;
 
 import com.raja.dao.TicketDetailsDao;
+import com.raja.exception.ValidationException;
 import com.raja.model.DepartmentDetails;
 import com.raja.model.EmployeeDetails;
 import com.raja.model.IssueDetails;
@@ -29,11 +30,15 @@ public class TestService {
  ticketCreation();
 		}
 
-static void testLogin(){
+static void testLogin() {
 	UserDetailsService userDetailService=new UserDetailsService();
-	userDetailService.login("syu@gmail.com", "yuvardn"); 
+	try {
+		userDetailService.login("syu@gmail.com", "yuvardn");
+	} catch (ValidationException e) {	
+		e.printStackTrace();
+	} 
 }
-static void testRegistration(){
+static void testRegistration() {
 	UserDetailsService userDetailService=new UserDetailsService();
 
 	UserDetails userDetail=new UserDetails();
@@ -41,7 +46,11 @@ static void testRegistration(){
 	userDetail.setUserMail("raja@gmail.com");
 	userDetail.setUserName("raja");;
 	userDetail.setPass("raja12345");;
-userDetailService.registration(userDetail);
+try {
+	userDetailService.registration(userDetail);
+} catch (ValidationException e) {
+	e.printStackTrace();
+}
 	
 }
 static void ticketCreation(){

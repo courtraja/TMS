@@ -31,7 +31,7 @@ public class UserController {
 			userDetailService.login(userDetail.getUserMail(), userDetail.getPass());
 			System.out.println(userDetail);
 		} catch (ValidationException e) {
-			e.printStackTrace();
+			
 			modelMap.addAttribute("ERROR_MESSAGE", e.getMessage());
 			return "../userlogin.jsp";
 		}

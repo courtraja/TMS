@@ -53,7 +53,7 @@ public void login(String email,String password) throws ValidationException{
 		UserDetailsDao userDetailDao=new UserDetailsDao();
 		UserDetails row=(userDetailDao.findone());
 		String tname=row.getUserMail();
-		String tpassword=row.getUserName();
+		String tpassword=row.getPass();
 		
 		String message=(userDetailValidator.loginValidation(tname, tpassword, email, password));
 		
