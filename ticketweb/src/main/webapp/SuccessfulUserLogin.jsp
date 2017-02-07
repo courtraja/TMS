@@ -6,8 +6,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<body>
+<body align="center">
+<br>
+<br>
+<br>
+<a href="CreateTicket.jsp">CreateTicket</a>
+<br><br><br>
+<a href="UpdateTicket.jsp">UpdateTicket</a><br><br><br>
+<a href="ViewTicket.jsp">ViewTicket</a><br><br><br>
+<a href="CloseTicket.jsp">CloseTicket</a><br><br><br>
 
-k,jkjlibh.byihi
 </body>
 </html>
