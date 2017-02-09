@@ -72,7 +72,7 @@ public class UserController {
 		} catch (ValidationException e) {
 			e.printStackTrace();
 			modelMap.addAttribute("ERROR_MESSAGE", e.getMessage());
-			return "../.jsp";
+			return "..userregistration/.jsp";
 
 		}
 		return "../SuccessfulUserRegistration.jsp";

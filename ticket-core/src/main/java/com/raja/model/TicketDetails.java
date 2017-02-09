@@ -16,7 +16,7 @@ public class TicketDetails {
 	private LocalDateTime createdTime;
 	private String status;
 	private LocalDateTime modifiedTime;
-	private int priority;
+	private String priority;
 	
 	
 }

@@ -65,7 +65,7 @@ static void ticketCreation(){
 	ticketDetail.setSubject("ndnjd");
 	ticketDetail.setDescription("hjdhhjd");
 	ticketDetail.setCreatedTime(LocalDateTime.now());
-	ticketDetail.setPriority(1);
+	ticketDetail.setPriority("high");
 	TicketDetailsService ticketDetailService=new TicketDetailsService();
 	ticketDetailService.createTicket(ticketDetail);
 }

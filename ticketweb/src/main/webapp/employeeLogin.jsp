@@ -4,16 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
 <body align="center">
-${ERROR_MESSAGE};
-<br>
-<br>
-<br>
-<br>
 <form action="login/UserLogin" method="GET">
 		<div class="form-group" align="center">
       <label for="email">Email:</label>
@@ -23,9 +16,7 @@ ${ERROR_MESSAGE};
       <label for="pwd">Password:</label>
       <input type="text" class="form-control" name="pwd" placeholder=" password" style="width:300px">
     </div>
-    <center>Existing User:<button type="submit" class="btn btn-default">Login</button></center><br><br>
-    <center>New User:<button type="submit" class="btn btn-default">Register</button></center>
-
-	</form>
+    </form>
+    ${ERROR_MESSAGE};
 </body>
 </html>

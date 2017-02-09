@@ -23,6 +23,6 @@
 <br>
 <br>
 <br>
-<a href="userregistration.jsp">UserRegistration</a>
+<a href="UserRegistration.jsp">UserRegistration</a>
 </body>
 </html>

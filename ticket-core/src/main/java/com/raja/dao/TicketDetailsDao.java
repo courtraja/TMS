@@ -84,7 +84,7 @@ JdbcTemplate jdbcTemplate = ConnectionUtil.getJdbcTemplate();
 			ticket1.setEmployeeId(employ);
 			ticket1.setCreatedTime((rs.getTimestamp("created_time")).toLocalDateTime());
 			ticket1.setStatus(rs.getString("status"));
-			ticket1.setPriority(rs.getInt("priority"));
+			ticket1.setPriority(rs.getString("priority"));
 			ticket1.setModifiedTime(rs.getTimestamp("modified_time").toLocalDateTime());
 			return ticket1;
 			
