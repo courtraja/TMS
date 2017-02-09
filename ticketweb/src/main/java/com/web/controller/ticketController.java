@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.raja.dao.TicketDetailsDao;
-import com.raja.exception.ValidationException;
 import com.raja.model.DepartmentDetails;
 import com.raja.model.TicketDetails;
 import com.raja.model.UserDetails;
@@ -22,14 +21,15 @@ public class ticketController {
 	
 	
 
-		@GetMapping("/viewticket")
+		@GetMapping("/ViewTicket")
 		public String viewTicket(@RequestParam("userId") int userId, ModelMap modelMap) {
 			TicketDetailsDao ticketDetailDao = new TicketDetailsDao();
-			List<TicketsDetail> t = ticketDetailDao.ticketview(userId);
+			List<TicketDetails> t = ticketDetailDao.viewticket(userId);
+			modelMap.addAttribute("list",t);
 			modelMap.addAttribute("Error_Message", t);
-			return "../viewticket.jsp";
+			return "../ViewTicket.jsp";
 		}
-		@GetMapping("/closeticket")
+		@GetMapping("/closeticket")                                                                                                                                                                                       
 		public String closeticket(@RequestParam("ticketid") int ticketid,ModelMap modelMap){
 			TicketDetails ticketDetail=new TicketDetails();
 			ticketDetail.setId(ticketid);
@@ -39,12 +39,12 @@ public class ticketController {
 		ticketDetailService.close(ticketDetail);
 		TicketDetailsDao ticketDetailDao=new TicketDetailsDao();
 		ticketDetailDao.closeTicket(ticketDetail.getId());
-		}catch(ValidationException e){
+		}catch(Exception e){
 			e.printStackTrace();
-			modelMap.addAttribute("ERROR_MESSAGE", e);
+			modelMap.addAttribute("ERROR_MESSAGE", e.getMessage());
 			return "../closeticket.jsp";
 		}
-		return "../viewticket.jsp";
+		return "../ViewTicket.jsp";
 		}
 
 		@GetMapping("/createticket")
@@ -58,9 +58,9 @@ public class ticketController {
 			UserDetails userDetail = new UserDetails();
 			userDetail.setUserId(userid);
 			ticketDetail.setUserId(userDetail);
-			DepartmentDetails department2 = new DepartmentDetails();
-			department2.setDepartmentId(department);
-			ticketDetail.setDepartmentId(department2);
+			DepartmentDetails dept = new DepartmentDetails();
+			dept.setDepartmentId(department);
+			ticketDetail.setDepartmentId(dept);
 			ticketDetail.setSubject(subject);
 			ticketDetail.setDescription(description);
 			ticketDetail.setPriority(priority);
@@ -70,12 +70,13 @@ public class ticketController {
 			try {
 				TicketDetailsService ticketDetailService = new TicketDetailsService();
 				ticketDetailService.createTicket(ticketDetail);
-			} catch (ValidationException e) {
+			} 
+			catch(Exception e){
 				e.printStackTrace();
 				modelMap.addAttribute("ERROR_MESSAGE", e.getMessage());
 				return "../createticket.jsp";
 			}
-			return "../viewticket.jsp";
+			return "../ViewTicket.jsp";
 
 		}
 		@GetMapping("/updateticket")
@@ -88,15 +89,15 @@ public class ticketController {
 			try{
 				ticketDetailService.update(ticketDetail);
 				TicketDetailsDao ticketDetailDao=new TicketDetailsDao();
-				ticketDetailDao.update(ticketDetail.getDescription(),ticketDetail.getId());
+				ticketDetailDao.update(ticketDetail);
 				modelMap.addAttribute("variable", ticketDetail.getUserId());
 			}
-			catch(ValidationException e){
+			catch(Exception e){
 				e.printStackTrace();
 				modelMap.addAttribute("ERROR_MESSAGE", e.getMessage());
 				return "../updateticket.jsp";
 			}
-			return "../viewticket.jsp";
+			return "../ViewTicket.jsp";
 		}
 	
 }

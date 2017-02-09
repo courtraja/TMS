@@ -12,9 +12,9 @@
 <br>
 <a href="CreateTicket.jsp">CreateTicket</a>
 <br><br><br>
-<a href="UpdateTicket.jsp">UpdateTicket</a><br><br><br>
-<a href="ViewTicket.jsp">ViewTicket</a><br><br><br>
-<a href="CloseTicket.jsp">CloseTicket</a><br><br><br>
+<a href="../UpdateTicket.jsp">UpdateTicket</a><br><br><br>
+<a href="../ViewTicket.jsp">ViewTicket</a><br><br><br>
+<a href="../CloseTicket.jsp">CloseTicket</a><br><br><br>
 
 </body>
 </html>

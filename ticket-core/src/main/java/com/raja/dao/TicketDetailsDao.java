@@ -125,5 +125,36 @@ JdbcTemplate jdbcTemplate = ConnectionUtil.getJdbcTemplate();
 			return employeeDetail;
 		});
 	}
+	public List<TicketDetails> viewticket(int id) {
+		String sql="select *from ticket_details where user_id=?";
+		Object[] params={id};
+		return jdbcTemplate.query(sql,params,(rs,rownum)->{
+			TicketDetails ticketDetail= new TicketDetails();
+			ticketDetail.setId(rs.getInt("id"));
+			
+			UserDetails userDetail=new UserDetails();
+			userDetail.setUserId(rs.getInt("user"));
+			ticketDetail.setUserId(userDetail);
+			
+			DepartmentDetails department=new DepartmentDetails();
+			department.setDepartmentId(rs.getInt("department"));
+			ticketDetail.setDepartmentId(department);
+			
+			ticketDetail.setSubject(rs.getString("subject"));
+			ticketDetail.setDescription(rs.getString("description"));
+			 
+			
+			
+			
+			ticketDetail.setStatus(rs.getString("status"));
+			ticketDetail.setPriority(rs.getString("priority"));
+			
+			
+			return ticketDetail;
+			
+		});
+	
+}
+	
 	
 }
