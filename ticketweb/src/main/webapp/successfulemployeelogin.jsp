@@ -7,14 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body align="center">
-<br>
-<br>
-<br>
-<a href="../CreateTicket.jsp">CreateTicket</a><br><br><br>
-
-<a href="../updateticket.jsp">updateticket</a><br><br><br>
-<a href="../ViewTicket.jsp">ViewTicket</a><br><br><br>
-<a href="../closeticket.jsp">closeticket</a><br><br><br>
-<a href="../index.jsp">Logout</a>
+  <h1>successfull employee login</h1>
+     <h1> ${message}</h1>
+       <a href="../assignticket.jsp">Assign Ticket</a></br>
+       <a href="../viewticket.jsp">View Ticket</a></br>
+       <a href="../replyticket.jsp">Reply Ticket</a></br>
+       <a href="../reassignticket.jsp">Reassign Ticket</a>
+       <a href="../index.jsp">Log out</a>
 </body>
 </html>
