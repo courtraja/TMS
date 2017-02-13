@@ -9,12 +9,12 @@
 <body>
   <h1>Ticket Generation</h1>
         <form action="ticket/CreateTicket" method="GET">
-		Ticket Id : <input type="number" name="ticketid" /> 
-		User Id : <input type=" number" name="userid" />
-		Department:<select name="department">
-		<option value="1">admin</option>
-		<option value="2">software</option>
-		<option value="3">hardware</option></select>
+		Ticket Id : <input type="number" name="ticket_id" /> 
+		User Id : <input type=" number" name="user_id" />
+		Department:<select name="department_id">
+		<option value="1">human resource</option>
+		<option value="2">information technology</option>
+		<option value="3">finance</option></select>
 		Subject:<input type="text" name="subject" />
 		Description:<input type="text" name="description" />
 		Priority:<select name="priority">

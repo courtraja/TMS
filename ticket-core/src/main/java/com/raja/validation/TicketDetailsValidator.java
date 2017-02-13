@@ -31,7 +31,7 @@ public class TicketDetailsValidator {
 		ValidationUtil.isInvalidNumber(id, "invalid employee");
 	}
 	public void timeValidation(LocalDateTime num)throws ValidationException{
-		ValidationUtil.isValidDateTime(num, "invalid timestramp");
+		ValidationUtil.isValidDateTime(num, "invalid timestamp");
 	}
 	public void statusValidation(String name)throws ValidationException{
 		ValidationUtil.isInvalidString(name, "invalid status");
@@ -48,8 +48,7 @@ public class TicketDetailsValidator {
 		subjectValidation(ticket.getSubject());
 	   descriptionValidation(ticket.getDescription());
 	   employeeValidation(ticket.getEmployeeId().getEmployeeId());
-	   timeValidation(ticket.getCreatedTime());
-	   timeValidation(ticket.getModifiedTime());
+	   
 	   statusValidation(ticket.getStatus());
 	   
 	}
@@ -60,7 +59,7 @@ public class TicketDetailsValidator {
 		departmentValidation(ticket.getDepartmentId().getDepartmentId());
 		subjectValidation(ticket.getSubject());
 	   descriptionValidation(ticket.getDescription());
-	   timeValidation(ticket.getCreatedTime());
+	  
 	   
 	   
 	}

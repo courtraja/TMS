@@ -48,13 +48,15 @@ public class ticketController {
 		}
 
 		@GetMapping("/CreateTicket")
-		public String createticket(@RequestParam("ticketid") Integer ticketid, @RequestParam("userid") Integer userid,
-				@RequestParam("department") Integer department, @RequestParam("subject") String subject,
+		public String createticket(@RequestParam("ticket_id") Integer ticketid, @RequestParam("user_id") Integer userid,
+				@RequestParam("department_id") Integer department, @RequestParam("subject") String subject,
 				@RequestParam("description") String description, @RequestParam("priority") String priority,
 				ModelMap modelMap) {
 			System.out.println(userid + "" + department);
 			TicketDetails ticketDetail = new TicketDetails();
-			ticketDetail.setId(ticketid);
+			System.out.println(ticketid);
+			ticketDetail.setId((ticketid));
+			
 			UserDetails userDetail = new UserDetails();
 			userDetail.setUserId(userid);
 			ticketDetail.setUserId(userDetail);
@@ -64,7 +66,7 @@ public class ticketController {
 			ticketDetail.setSubject(subject);
 			ticketDetail.setDescription(description);
 			ticketDetail.setPriority(priority);
-			ticketDetail.setCreatedTime(LocalDateTime.now());
+		
 			System.out.println("hi");
 			modelMap.addAttribute("variable", userid);
 			try {
@@ -97,7 +99,7 @@ public class ticketController {
 				modelMap.addAttribute("ERROR_MESSAGE", e.getMessage());
 				return "../updateticket.jsp";
 			}
-			return "../ViewTicket.jsp";
+			return "../ViewTicket.jsp";                               
 		}
 	
 }

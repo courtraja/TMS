@@ -25,8 +25,8 @@ JdbcTemplate jdbcTemplate = ConnectionUtil.getJdbcTemplate();
 		
 		}
 	public int createticket(TicketDetails ticketDetail){
-		String sql="insert into ticket_details(ticket_id,user_id,department_id,subject,description,created_time,status,modified_time,priority)values(?,?,?,?,?,?,?)";
-		Object[] params={ticketDetail.getId(),ticketDetail.getUserId().getUserId(),ticketDetail.getDepartmentId().getDepartmentId(),ticketDetail.getSubject(),ticketDetail.getDescription(),ticketDetail.getCreatedTime().toLocalTime(),ticketDetail.getStatus(),ticketDetail.getModifiedTime(),ticketDetail.getPriority()};
+		String sql="insert into ticket_details(ticket_id,user_id,department_id,subject,description,priority)values(?,?,?,?,?,?)";
+		Object[] params={ticketDetail.getId(),ticketDetail.getUserId().getUserId(),ticketDetail.getDepartmentId().getDepartmentId(),ticketDetail.getSubject(),ticketDetail.getDescription(),ticketDetail.getPriority()};
 	   return jdbcTemplate.update(sql,params);
 	}
 	public void update(TicketDetails ticket) {
@@ -46,17 +46,17 @@ JdbcTemplate jdbcTemplate = ConnectionUtil.getJdbcTemplate();
 		
 		}
 	public int closeTicket(int id){
-		String sql="update ticket_details set status=? where id=?";
+		String sql="update ticket_details set status=? where ticket_id=?";
 		Object[] params={"closed",id};
 		return jdbcTemplate.update(sql,params);
 	}
 	public int assignTicket(int ticketId,int employeeId ,LocalDateTime time){
-		String sql="update ticket_details set assigned_to=?,modified_time=?,status=? where id=? and status=?";
+		String sql="update ticket_details set assigned_to=?,modified_time=?,status=? where ticket_id=?";
 		Object[] params={employeeId,time,"inprogress",ticketId,"open"};
 		return jdbcTemplate.update(sql,params);
 	}
-	public int reassignTicket(int ticketId,int employeeId ){
-		String sql="update ticket_details set assigned_to=? where id=? ";
+	public int reassignTicket(int employeeId,int ticketId){
+		String sql="update ticket_details set assigned_to=? where ticket_id=? ";
 		Object[] params={employeeId,ticketId};
 		return jdbcTemplate.update(sql,params);
 	}
@@ -117,7 +117,7 @@ JdbcTemplate jdbcTemplate = ConnectionUtil.getJdbcTemplate();
 	}
 	public EmployeeDetails checkEmployee(int id,String name)
 	{
-		String sql="select id from seed_employee_details where id=? and department=(select id from seed_department where name=?";
+		String sql="select employee_id from employee_details where ticket_id=? and department_id=(select id from department_details where department_name=?";
 		Object[] params={id,name};
 		return jdbcTemplate.queryForObject(sql,params,(rs,rownum)->{
 			EmployeeDetails employeeDetail=new EmployeeDetails();
@@ -126,7 +126,7 @@ JdbcTemplate jdbcTemplate = ConnectionUtil.getJdbcTemplate();
 		});
 	}
 	public List<TicketDetails> viewticket(int id) {
-		String sql="select *from ticket_details where user_id=?";
+		String sql="select *from ticket_details where ticket_id=?";
 		Object[] params={id};
 		return jdbcTemplate.query(sql,params,(rs,rownum)->{
 			TicketDetails ticketDetail= new TicketDetails();
