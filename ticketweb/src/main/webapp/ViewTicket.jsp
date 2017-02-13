@@ -10,7 +10,7 @@
 </head>
 <body>
 <form action="/ticket/ViewTicket">
-		UserId <input type="text" name="userId" value=${variable}>
+		Ticket Id <input type="text" name="ticketId" value=${variable}>
 		<button type="submit">Submit</button>
 	</form>
 	<h2>Ticket</h2>

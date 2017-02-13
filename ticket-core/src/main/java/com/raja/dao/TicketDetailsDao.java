@@ -130,14 +130,14 @@ JdbcTemplate jdbcTemplate = ConnectionUtil.getJdbcTemplate();
 		Object[] params={id};
 		return jdbcTemplate.query(sql,params,(rs,rownum)->{
 			TicketDetails ticketDetail= new TicketDetails();
-			ticketDetail.setId(rs.getInt("id"));
+			ticketDetail.setId(rs.getInt("ticket_id"));
 			
 			UserDetails userDetail=new UserDetails();
-			userDetail.setUserId(rs.getInt("user"));
+			userDetail.setUserId(rs.getInt("user_id"));
 			ticketDetail.setUserId(userDetail);
 			
 			DepartmentDetails department=new DepartmentDetails();
-			department.setDepartmentId(rs.getInt("department"));
+			department.setDepartmentId(rs.getInt("department_id"));
 			ticketDetail.setDepartmentId(department);
 			
 			ticketDetail.setSubject(rs.getString("subject"));

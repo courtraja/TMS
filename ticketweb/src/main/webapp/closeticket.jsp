@@ -11,8 +11,8 @@
   <form action="ticket/closeticket" method="GET">
 		Ticket Id : <input type="number" name="ticketid" /></br> 
 	   <button type="submit">Submit</button></form>
-	   CreateTicket:<a href="../createticket.jsp">createticket</a></br></br>
+	   CreateTicket:<a href="../CreateTicket.jsp">CreateTicket</a></br></br>
 	   UpdateTicket:<a href="../updateticket.jsp">updateticket</a></br></br>
-	   ViewTicket:<a href="../viewticket.jsp">viewticket</a>
+	   ViewTicket:<a href="../ViewTicket.jsp">ViewTicket</a>
 </body>
 </html>
