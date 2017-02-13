@@ -7,14 +7,14 @@
 <title>Insert title here</title>
 </head>
 <body>
- <h1>Ticket Generation</h1>
+  <h1>Ticket Generation</h1>
         <form action="ticket/CreateTicket" method="GET">
 		Ticket Id : <input type="number" name="ticketid" /> 
 		User Id : <input type=" number" name="userid" />
 		Department:<select name="department">
-		<option value="1">manager</option>
-		<option value="2">software engineer</option>
-		<option value="3">admin</option>		</select>
+		<option value="1">admin</option>
+		<option value="2">software</option>
+		<option value="3">hardware</option></select>
 		Subject:<input type="text" name="subject" />
 		Description:<input type="text" name="description" />
 		Priority:<select name="priority">
@@ -26,9 +26,9 @@
 		<button type="submit">Submit</button>
 
 	</form>
-	ViewTicket :<a href="viewticket.jsp">viewticket</a></br>
-	UpdateTicke:<a href="updateticket.jsp">updateticket</a></br>
-	CloseTicket :<a href="closeticket.jsp">closeticket</a></br>
+	ViewTicket :<a href="../ViewTicket.jsp">ViewTicket</a></br>
+	UpdateTicke:<a href="../updateticket.jsp">updateticket</a></br>
+	CloseTicket :<a href="../closeticket.jsp">closeticket</a></br>
   
 	${ERROR_MESSAGE};
 </body>

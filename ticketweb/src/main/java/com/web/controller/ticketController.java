@@ -47,7 +47,7 @@ public class ticketController {
 		return "../ViewTicket.jsp";
 		}
 
-		@GetMapping("/createticket")
+		@GetMapping("/CreateTicket")
 		public String createticket(@RequestParam("ticketid") Integer ticketid, @RequestParam("userid") Integer userid,
 				@RequestParam("department") Integer department, @RequestParam("subject") String subject,
 				@RequestParam("description") String description, @RequestParam("priority") String priority,
@@ -74,7 +74,7 @@ public class ticketController {
 			catch(Exception e){
 				e.printStackTrace();
 				modelMap.addAttribute("ERROR_MESSAGE", e.getMessage());
-				return "../createticket.jsp";
+				return "../CreateTicket.jsp";
 			}
 			return "../ViewTicket.jsp";
 

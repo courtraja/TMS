@@ -21,7 +21,7 @@ ${ERROR_MESSAGE};
     </div>
     <div class="form-group" align="center">
       <label for="pwd">Password:</label>
-      <input type="text" class="form-control" name="pwd" placeholder=" password" style="width:300px">
+      <input type="password" class="form-control" name="pwd" placeholder=" password" style="width:300px">
     </div>
     <center>Existing User:<button type="submit" class="btn btn-default">Login</button></center><br><br>
     <center>New User:<button type="submit" class="btn btn-default">Register</button></center>

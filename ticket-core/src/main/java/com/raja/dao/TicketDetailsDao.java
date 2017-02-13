@@ -25,8 +25,8 @@ JdbcTemplate jdbcTemplate = ConnectionUtil.getJdbcTemplate();
 		
 		}
 	public int createticket(TicketDetails ticketDetail){
-		String sql="insert into ticket_details(id,user,department,subject,description,created_time,priority )values(?,?,?,?,?,?,?)";
-		Object[] params={ticketDetail.getId(),ticketDetail.getUserId().getUserId(),ticketDetail.getDepartmentId(),ticketDetail.getSubject(),ticketDetail.getDescription(),ticketDetail.getCreatedTime(),ticketDetail.getPriority()};
+		String sql="insert into ticket_details(ticket_id,user_id,department_id,subject,description,created_time,status,modified_time,priority)values(?,?,?,?,?,?,?)";
+		Object[] params={ticketDetail.getId(),ticketDetail.getUserId().getUserId(),ticketDetail.getDepartmentId().getDepartmentId(),ticketDetail.getSubject(),ticketDetail.getDescription(),ticketDetail.getCreatedTime().toLocalTime(),ticketDetail.getStatus(),ticketDetail.getModifiedTime(),ticketDetail.getPriority()};
 	   return jdbcTemplate.update(sql,params);
 	}
 	public void update(TicketDetails ticket) {

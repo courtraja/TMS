@@ -38,8 +38,8 @@
 			</c:forEach> 
 		</tbody>
 	</table>
-CloseTicket:<a href="../closeticket.jsp">closeticket</a></br>
-		CreateTicket:<a href="../createticket.jsp">createticket</a></br>
+        CloseTicket:<a href="../closeticket.jsp">closeticket</a></br>
+		CreateTicket:<a href="../CreateTicket.jsp">CreateTicket</a></br>
 		updateTicket:<a href="../updateticket.jsp">updateticket</a>
 </body>
 </html>                       
