@@ -31,15 +31,15 @@ JdbcTemplate jdbcTemplate = ConnectionUtil.getJdbcTemplate();
 	}
 	public void update(TicketDetails ticket) {
 
-		String sql = "update ticket_details set description=? where user_id=?";
-		Object[] params = {ticket.getDescription(),ticket.getUserId()};
+		String sql = "update ticket_details set description=?,modified_time=? where ticket_id=?";
+		Object[] params = {ticket.getDescription(),LocalDateTime.now(),ticket.getId()};
 		jdbcTemplate.update(sql, params);
 		
 		}
 
 	public void delete(TicketDetails ticket) {
 
-		String sql = "delete from ticket_details where user_id=?";
+		String sql = "delete from ticket_details where ticket_id=?";
 		
 		Object[] params = {ticket.getId()};
 		jdbcTemplate.update(sql, params);
@@ -90,10 +90,10 @@ JdbcTemplate jdbcTemplate = ConnectionUtil.getJdbcTemplate();
 			
 		};
 	
-	public TicketDetails select(int userId)
+	public TicketDetails select(int ticketId)
 	{
-		String sql = "select select * from TicketDetails where user_id=?";
-		Object[] params={userId};
+		String sql = "select select * from TicketDetails where ticket_id=?";
+		Object[] params={ticketId};
 		return (TicketDetails) jdbcTemplate.queryForObject(sql, (rs,rowNum) -> convert(rs));
 	}
 	public List<TicketDetails> list()

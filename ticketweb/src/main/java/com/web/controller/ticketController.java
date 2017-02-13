@@ -83,10 +83,10 @@ public class ticketController {
 		}
 		@GetMapping("/updateticket")
 		
-		public String updateticket(@RequestParam("ticketid") Integer ticketid,@RequestParam("subject") String subject,ModelMap modelMap){
+		public String updateticket(@RequestParam("ticketid") Integer ticketid,@RequestParam("description") String description,ModelMap modelMap){
 			TicketDetails ticketDetail=new TicketDetails();
 			ticketDetail.setId(ticketid);
-			ticketDetail.setSubject(subject);
+			ticketDetail.setDescription(description);
 			TicketDetailsService ticketDetailService=new TicketDetailsService();
 			try{
 				ticketDetailService.update(ticketDetail);

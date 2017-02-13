@@ -11,7 +11,7 @@ ${ERROR_MESSAGE}
  <h1>Update Ticket</h1>
   <form action="ticket/updateticket" method="GET">
 		Ticket Id : <input type="text" name="ticketid" /></br>
-		Subject    : <input type="text" name="subject"/> </br>
+		Description : <input type="text" name="description"/> </br>
 		<button type="submit">Submit</button>
 		</form>
 		CreateTicket:<a href="createticket.jsp">createticket</a><br><br><br>
