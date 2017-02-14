@@ -10,7 +10,7 @@
   <h1>successfull employee login</h1>
      <h1> ${message}</h1>
        <a href="../assignticket.jsp">Assign Ticket</a></br>
-       <a href="../viewticket.jsp">View Ticket</a></br>
+       <a href="../ViewTicket.jsp">View Ticket</a></br>
        <a href="../replyticket.jsp">Reply Ticket</a></br>
        <a href="../reassignticket.jsp">Reassign Ticket</a>
        <a href="../index.jsp">Log out</a>

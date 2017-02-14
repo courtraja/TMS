@@ -7,14 +7,15 @@
 <title>Insert title here</title>
 </head>
 <body align="center">
-<form action="login/UserLogin" method="GET">
+<form action="login/employeeLogin" method="GET">
 		<div class="form-group" align="center">
       <label for="email">Email:</label>
-      <input type="text" class="form-control" name="email" placeholder="Username" style="width:300px">
+      <input type="text" class="form-control" name="emailid" placeholder="Username" style="width:300px">
     </div>
     <div class="form-group" align="center">
       <label for="pwd">Password:</label>
-      <input type="text" class="form-control" name="pwd" placeholder=" password" style="width:300px">
+      <input type="text" class="form-control" name="password" placeholder=" password" style="width:300px">
+      <center><button type="submit" class="btn btn-default">Login</button></center><br><br>
     </div>
     </form>
     ${ERROR_MESSAGE};

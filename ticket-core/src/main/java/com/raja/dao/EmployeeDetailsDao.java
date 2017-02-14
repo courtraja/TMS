@@ -8,6 +8,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 import com.raja.model.DepartmentDetails;
 import com.raja.model.EmployeeDetails;
+import com.raja.model.role;
 import com.raja.util.ConnectionUtil;
 
 
@@ -46,23 +47,28 @@ JdbcTemplate jdbcTemplate = ConnectionUtil.getJdbcTemplate();
 		
 			DepartmentDetails dept=new DepartmentDetails();
 			dept.setDepartmentId(rs.getInt("department_id"));
-		
+		    role role=new role();
+		    role.setRoleId(rs.getInt("role_id"));
 			EmployeeDetails employee = new EmployeeDetails();
 			employee.setEmployeeName((rs.getString("employee_name")));
 			employee.setEmployeeMail(rs.getString("employee_email"));
+			employee.setEmployeeId(rs.getInt("employee_id"));
 			employee.setEmployeePass(rs.getString("employee_password"));
 			employee.setEmployeeActive(rs.getString("employee_active"));
 			employee.setDepartmentId(dept);
+			employee.setRoleId(role);
 			return employee;
 			
 		};
 	
-	public EmployeeDetails findone(int id)
+	public EmployeeDetails findone(String id)
 	{
-		String sql = "select * from employee_details where employee_id=?";
+		String sql = "select * from employee_details where employee_email=?";
+		System.out.println("dao->findOne->id="+ id);
 		Object[] params={id};
-		return (EmployeeDetails) jdbcTemplate.queryForObject(sql, (rs,rowNum) -> convert(rs));
+		return (EmployeeDetails) jdbcTemplate.queryForObject(sql,params, (rs,rowNum) -> convert(rs));
 	}
+	
 	
 	public List<EmployeeDetails> list()
 	{

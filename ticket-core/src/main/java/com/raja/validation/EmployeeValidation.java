@@ -8,10 +8,15 @@ import com.raja.util.ValidationUtil;
 public class EmployeeValidation {
 
 	ValidationUtil validationUtil = new ValidationUtil(); 
-	public void employeeValidation(EmployeeDetails emp)throws ValidationException {
+	public void employeeValidation(String a,String b,String c,String d)throws ValidationException {
 		
 
-		ValidationUtil.isInvalidObject(emp, "invalid object");
+		ValidationUtil.isInvalidObject(a, "invalid object");
+		ValidationUtil.isInvalidObject(b, "invalid object");
+		ValidationUtil.isInvalidObject(c, "invalid object");
+		ValidationUtil.isInvalidObject(d, "invalid object");
+
+
 		}
 	public void idValidation(Integer id)throws ValidationException{
 		ValidationUtil.isInvalidNumber(id, "invalid id");
@@ -35,7 +40,7 @@ public class EmployeeValidation {
 		ValidationUtil.isInvalidNumber(id, "invalid role");
 	}
 	public void saveValidation(EmployeeDetails emp)throws  ValidationException{
-		employeeValidation(emp);
+//		employeeValidation(emp);
 		idValidation(emp.getEmployeeId());
 		nameValidation(emp.getEmployeeName());
 		emailValidation(emp.getEmployeeMail());
@@ -45,11 +50,11 @@ public class EmployeeValidation {
 		roleValidation(emp.getRoleId().getRoleId());
 	}
 	public void deleteValidation(EmployeeDetails emp)throws ValidationException{
-		employeeValidation(emp);
+//		employeeValidation(emp);
 		idValidation(emp.getEmployeeId());
 	}
 	public void updateValidation(EmployeeDetails emp)throws ValidationException{
-	 employeeValidation(emp);
+//	 employeeValidation(emp);
 	 idValidation(emp.getEmployeeId());
 	}
 }

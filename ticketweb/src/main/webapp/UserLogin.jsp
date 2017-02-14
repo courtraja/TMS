@@ -23,7 +23,7 @@ ${ERROR_MESSAGE};
       <label for="pwd">Password:</label>
       <input type="password" class="form-control" name="pwd" placeholder=" password" style="width:300px">
     </div>
-    <center>Existing User:<button type="submit" class="btn btn-default">Login</button></center><br><br>
+    <center><button type="submit" class="btn btn-default">Login</button></center><br><br>
     
 
 	</form>
