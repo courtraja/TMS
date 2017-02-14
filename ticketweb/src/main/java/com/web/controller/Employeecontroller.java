@@ -1,7 +1,9 @@
 package com.web.controller;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.raja.exception.ValidationException;
@@ -9,7 +11,8 @@ import com.raja.model.DepartmentDetails;
 import com.raja.model.EmployeeDetails;
 import com.raja.model.role;
 import com.raja.service.EmployeeDetailsService;
-
+@Controller
+@RequestMapping("/login")
 public class Employeecontroller {
 	 @GetMapping("/employeelogin") 
 	  public String employeelogin(@RequestParam("emailid") String emailid, @RequestParam("password") String pwd,ModelMap modelMap){ 
@@ -52,7 +55,7 @@ public class Employeecontroller {
 			} catch (ValidationException e) {
 				e.printStackTrace();
 				modelMap.addAttribute("ERROR_MESSAGE", e.getMessage());
-				return "employeeregistration.jsp";
+				return "../employeeregistration.jsp";
 			}
 			modelMap.addAttribute("ERROR_MESSAGE","successfully registered");
 			return "../index.jsp";

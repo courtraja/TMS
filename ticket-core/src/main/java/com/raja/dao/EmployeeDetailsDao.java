@@ -20,15 +20,15 @@ JdbcTemplate jdbcTemplate = ConnectionUtil.getJdbcTemplate();
 
 	public void save(EmployeeDetails employee) {
 
-		String sql = "insert into employee_details(employee_id,employee_name,employee_e-mail,employee_Password,department_id,role_id) values(?,?,?,?,?,?)";
-		Object[] params = {employee.getEmployeeId(),employee.getEmployeeName(),employee.getEmployeeMail(),employee.getEmployeePass(),employee.getDepartmentId(),employee.getRoleId()};
+		String sql = "insert into employee_details(employee_id,employee_name,employee_email,employee_Password,department_id,role_id) values(?,?,?,?,?,?)";
+		Object[] params = {employee.getEmployeeId(),employee.getEmployeeName(),employee.getEmployeeMail(),employee.getEmployeePass(),employee.getDepartmentId().getDepartmentId(),employee.getRoleId().getRoleId()};
 		jdbcTemplate.update(sql, params);
 		
 		}
 	public void update(EmployeeDetails employee) {
 
 		String sql = "update employee_details set department_id=?,roleId=?,employee_name=?,employee_e-mail=?,employee_password=? where employee_id=?";
-		Object[] params = {employee.getEmployeeId(),employee.getEmployeeName(),employee.getEmployeeMail(),employee.getEmployeePass(),employee.getDepartmentId(),employee.getRoleId()};
+		Object[] params = {employee.getEmployeeId(),employee.getEmployeeName(),employee.getEmployeeMail(),employee.getEmployeePass(),employee.getDepartmentId().getDepartmentId(),employee.getRoleId().getRoleId()};
 		jdbcTemplate.update(sql, params);
 		
 		}
