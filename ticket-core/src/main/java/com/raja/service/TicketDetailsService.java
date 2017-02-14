@@ -3,8 +3,11 @@ package com.raja.service;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import org.apache.commons.mail.EmailException;
+
 import com.raja.dao.TicketDetailsDao;
 import com.raja.exception.ValidationException;
+import com.raja.mail.Mail;
 import com.raja.model.DepartmentDetails;
 import com.raja.model.EmployeeDetails;
 import com.raja.model.TicketDetails;
@@ -44,12 +47,13 @@ public void update(TicketDetails ticketDetail){
 		logger.log(Level.SEVERE, "Exception occur", e);
 		}
 }
-public void createTicket(TicketDetails ticketDetail){
+public void createTicket(TicketDetails ticketDetail) throws ValidationException,EmailException{
 	try{
 		ticketDetailValidator.createTicketValidation(ticketDetail);
 		TicketDetailsDao ticketDetailDao=new TicketDetailsDao();
 		ticketDetailDao.createticket(ticketDetail);
-		
+		Mail.sendSimpleMail("courtjes1995@gmail.com","Ticket Created Sucessfully.Your Ticket id is:",ticketDetail.getId());
+
 	}catch(ValidationException e){
 		logger.log(Level.SEVERE,"Exception occur", e);
 	}

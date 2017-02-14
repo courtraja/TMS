@@ -12,6 +12,7 @@ C:\Users\RCS113\ticket\TicketManagementSystem\ticket-core\src\main\java\com\raja
 C:\Users\RCS113\ticket\TicketManagementSystem\ticket-core\src\main\java\com\raja\validation\IssueDetailsValidator.java
 C:\Users\RCS113\ticket\TicketManagementSystem\ticket-core\src\main\java\com\raja\service\EmployeeDetailsService.java
 C:\Users\RCS113\ticket\TicketManagementSystem\ticket-core\src\main\java\com\raja\dao\UserDetailsDao.java
+C:\Users\RCS113\ticket\TicketManagementSystem\ticket-core\src\main\java\com\raja\mail\Mail.java
 C:\Users\RCS113\ticket\TicketManagementSystem\ticket-core\src\main\java\com\raja\service\UserDetailsService.java
 C:\Users\RCS113\ticket\TicketManagementSystem\ticket-core\src\main\java\com\raja\service\TicketDetailsService.java
 C:\Users\RCS113\ticket\TicketManagementSystem\ticket-core\src\main\java\com\raja\validation\DepartmentDetailsValidator.java

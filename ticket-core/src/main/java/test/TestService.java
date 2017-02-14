@@ -2,6 +2,7 @@ package test;
 
 import java.time.LocalDateTime;
 
+import org.apache.commons.mail.EmailException;
 
 import com.raja.dao.TicketDetailsDao;
 import com.raja.exception.ValidationException;
@@ -28,8 +29,7 @@ public class TestService {
 		//testReplysolution();
         //  testReassign();
 	//	testDeleteTicket();
- ticketCreation();
-		}
+	}
 
 static void testLogin() {
 	UserDetailsService userDetailService=new UserDetailsService();
@@ -54,7 +54,7 @@ try {
 }
 	
 }
-static void ticketCreation(){
+static void ticketCreation() throws ValidationException, EmailException{
 	TicketDetails ticketDetail=new TicketDetails();
 	ticketDetail.setId(1);
 	UserDetails userDetail=new UserDetails();

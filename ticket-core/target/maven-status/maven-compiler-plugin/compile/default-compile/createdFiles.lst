@@ -25,4 +25,5 @@ com\raja\validation\IssueDetailsValidator.class
 com\raja\service\EmployeeDetailsService.class
 com\raja\dao\EmployeeDetailsDao.class
 com\raja\service\UserDetailsService.class
+com\raja\mail\Mail.class
 com\raja\dao\roleDao.class
