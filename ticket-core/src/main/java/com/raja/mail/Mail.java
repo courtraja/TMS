@@ -15,7 +15,7 @@ import org.apache.commons.mail.SimpleEmail;
 			email.setSmtpPort(587);
 
 			email.setAuthenticator(new DefaultAuthenticator("ticketapp.gvel@gmail.com", "ticketapp.gvel1234"));
-			email.setDebug(true);
+			email.setDebug(false);
 			email.setHostName("smtp.gmail.com");
 			email.setSSLOnConnect(true);
 			email.setFrom("ticketapp.gvel@gmail.com");
@@ -23,10 +23,7 @@ import org.apache.commons.mail.SimpleEmail;
 			email.setMsg(message + "" + i);
 			email.addTo(mail);
 			email.setStartTLSEnabled(true);
-			email.send();
-
+//			email.send();
 		}
-
-	
 	}
 

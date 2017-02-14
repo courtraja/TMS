@@ -126,7 +126,7 @@ JdbcTemplate jdbcTemplate = ConnectionUtil.getJdbcTemplate();
 		});
 	}
 	public List<TicketDetails> viewticket(int id) {
-		String sql="select *from ticket_details where ticket_id=?";
+		String sql="select *from ticket_details where user_id=?";
 		Object[] params={id};
 		return jdbcTemplate.query(sql,params,(rs,rownum)->{
 			TicketDetails ticketDetail= new TicketDetails();
