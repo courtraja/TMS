@@ -74,7 +74,7 @@ JdbcTemplate jdbcTemplate = ConnectionUtil.getJdbcTemplate();
 	{
 		String sql = "select * from employee_details";
 		
-		return (List<EmployeeDetails>) jdbcTemplate.queryForObject(sql, (rs,rowNum) -> convert(rs));
+		return (List<EmployeeDetails>) jdbcTemplate.query(sql, (rs,rowNum) -> convert(rs));
 	}
 	
 }
