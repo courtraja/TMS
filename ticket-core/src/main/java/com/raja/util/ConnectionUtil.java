@@ -19,6 +19,6 @@ public class ConnectionUtil {
 	public static JdbcTemplate getJdbcTemplate() {
 		JdbcTemplate jt = new JdbcTemplate();
 		jt.setDataSource(getDataSource());
-		return jt;
+		return jt;   
 	}
 }

@@ -92,13 +92,13 @@ JdbcTemplate jdbcTemplate = ConnectionUtil.getJdbcTemplate();
 	
 	public TicketDetails select(int ticketId)
 	{
-		String sql = "select select * from TicketDetails where ticket_id=?";
+		String sql = "select * from TicketDetails where ticket_id=?";
 		Object[] params={ticketId};
 		return (TicketDetails) jdbcTemplate.queryForObject(sql, (rs,rowNum) -> convert(rs));
 	}
 	public List<TicketDetails> list()
 	{
-		String sql = "select select * from TicketDetails";
+		String sql = "select * from TicketDetails";
 		
 		return (List<TicketDetails>) jdbcTemplate.query(sql, (rs,rowNum) -> convert(rs));
 	}
