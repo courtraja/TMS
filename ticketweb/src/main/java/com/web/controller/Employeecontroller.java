@@ -14,7 +14,8 @@ import com.raja.service.EmployeeDetailsService;
 @Controller
 @RequestMapping("/login")
 public class Employeecontroller {
-	 @GetMapping("/employeelogin") 
+	 @GetMapping("/employeelogin")
+	 
 	  public String employeelogin(@RequestParam("emailid") String emailid, @RequestParam("password") String pwd,ModelMap modelMap){ 
 		 EmployeeDetails employeeDetail=new EmployeeDetails();
 		  employeeDetail.setEmployeeMail(emailid);

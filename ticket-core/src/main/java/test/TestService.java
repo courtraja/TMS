@@ -3,7 +3,9 @@ package test;
 import java.time.LocalDateTime;
 
 import org.apache.commons.mail.EmailException;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import com.raja.config.AppConfig;
 import com.raja.dao.TicketDetailsDao;
 import com.raja.exception.ValidationException;
 import com.raja.model.DepartmentDetails;
@@ -19,7 +21,8 @@ public class TestService {
 
 	public static void main(String[] args) {
 		UserDetailsService userDetailService=new UserDetailsService();
-
+//		AnnotationConfigApplicationContext ctx=new AnnotationConfigApplicationContext(AppConfig.class);
+//		UserDetailsService userDetailService=ctx.getBean(UserDetailsService.class); 
 	//testLogin();
 //	 testRegistration();
 //		testUpdate();

@@ -2,19 +2,25 @@ package com.raja.service;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.raja.dao.UserDetailsDao;
 import com.raja.exception.ValidationException;
 import com.raja.model.DepartmentDetails;
 import com.raja.model.UserDetails;
 import com.raja.validation.UserDetailsValidation;
+@Service
 public class UserDetailsService {
 	final Logger logger = Logger.getLogger(DepartmentDetails.class.getName());
-	UserDetailsValidation userDetailValidator=new UserDetailsValidation();
+	@Autowired
+	private UserDetailsValidation userDetailValidator;
+	@Autowired
+	private UserDetailsDao userDetailDao;
 
 	public void registration(UserDetails userDetail) throws ValidationException{
 		try{
 			userDetailValidator.saveValidation(userDetail);
-			UserDetailsDao userDetailDao=new UserDetailsDao();
 			userDetailDao.save(userDetail);
 		}catch (ValidationException e){
 			logger.log(Level.SEVERE, "exception occur %s",e);
@@ -24,7 +30,7 @@ public class UserDetailsService {
 public void save(UserDetails userDetail){
 	try{
 		userDetailValidator.saveValidation(userDetail);
-		UserDetailsDao userDetailDao=new UserDetailsDao();
+		
 		userDetailDao.save(userDetail);
 	}catch (ValidationException e){
 		logger.log(Level.SEVERE, "exception occur %s",e);
@@ -33,7 +39,7 @@ public void save(UserDetails userDetail){
 public void delete(UserDetails userDetail){
 	try{
 		userDetailValidator.deleteValidation(userDetail);
-		UserDetailsDao userDetailDao=new UserDetailsDao();
+		
 		userDetailDao.delete(userDetail);
 	}catch(ValidationException e){
 		logger.log(Level.SEVERE, "exception occur", e);
@@ -42,7 +48,7 @@ public void delete(UserDetails userDetail){
 public void update(UserDetails userDetail){
 	try{
 		userDetailValidator.updateValidation(userDetail);
-		UserDetailsDao userDetailDao=new UserDetailsDao();
+		
 		userDetailDao.update(userDetail);
 	}catch(ValidationException e){
 		logger.log(Level.SEVERE,"exception occur", e);

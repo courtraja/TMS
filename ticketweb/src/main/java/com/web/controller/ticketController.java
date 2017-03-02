@@ -3,6 +3,7 @@ package com.web.controller;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,14 +24,17 @@ public class ticketController {
 
 		@GetMapping("/ViewTicket")
 		public String viewTicket(@RequestParam("userId") int userId, ModelMap modelMap) {
+			
 			TicketDetailsDao ticketDetailDao = new TicketDetailsDao();
 			List<TicketDetails> t = ticketDetailDao.viewticket(userId);
 			modelMap.addAttribute("list",t);
 			modelMap.addAttribute("Error_Message", t);
 			return "../ViewTicket.jsp";
 		}
-		@GetMapping("/closeticket")                                                                                                                                                                                       
+		@GetMapping("/closeticket")  
+		
 		public String closeticket(@RequestParam("ticketid") int ticketid,ModelMap modelMap){
+			
 			TicketDetails ticketDetail=new TicketDetails();
 			ticketDetail.setId(ticketid);
 			System.out.println("hi");
@@ -48,6 +52,7 @@ public class ticketController {
 		}
 
 		@GetMapping("/CreateTicket")
+		@Autowired
 		public String createticket(@RequestParam("ticket_id") Integer ticketid, @RequestParam("user_id") Integer userid,
 				@RequestParam("department_id") Integer department, @RequestParam("subject") String subject,
 				@RequestParam("description") String description, @RequestParam("priority") String priority,

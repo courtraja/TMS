@@ -2,6 +2,8 @@ package com.raja.test;
 
 import java.util.List;
 
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
 import com.raja.dao.UserDetailsDao;
 import com.raja.model.UserDetails;
 

@@ -5,11 +5,11 @@ import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.jdbc.core.JdbcTemplate;
-
+import org.springframework.stereotype.Repository;
 
 import com.raja.model.UserDetails;
 import com.raja.util.ConnectionUtil;
-
+@Repository
 public class UserDetailsDao {
 
 JdbcTemplate jdbcTemplate = ConnectionUtil.getJdbcTemplate();
